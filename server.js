@@ -28,7 +28,7 @@ const routes = require('./routes/routes');
 //     name: "<-- Hit this to delete an item"
 // });
 
-// //creatin an array
+// // //creatin an array
 // const defaultArray = [item1, item2, item3];
 
 //creating a new schema for dynamic route

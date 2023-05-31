@@ -2,8 +2,22 @@ const _ = require("lodash");
 const Item = require('../model/item');
 const List = require('../model/listSchema');
 
+const item1 = new Item({
+    name: "Welcome to your todolist"
+});
+const item2 = new Item({
+    name: "Hi the + button to add a new item"
+});
+const item3 = new Item({
+    name: "<-- Hit this to delete an item"
+});
+
+// //creatin an array
+const defaultArray = [item1, item2, item3];
+
 exports.home = (req, res) => {
     //console logging the items, (we will get a error of items not found in the site)
+    
     Item.find({}, function (err, foundItems) {
         if (foundItems.length === 0) {
             Item.insertMany(defaultArray, function (err) {
