@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
 const routes = require('./routes/routes');
+const { dbConnect } = require("./config/db");
 
 const port = process.env.PORT | 3000;
 
@@ -20,5 +21,6 @@ app.use("/", routes);
 
 
 app.listen(port, ()=>{
+    dbConnect();
     console.log(`To do app is listening on the ${port}`);
 })
