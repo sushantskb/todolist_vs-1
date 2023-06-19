@@ -1,10 +1,24 @@
-const app = require("express")();
-const todoController = require('../controllers/todo.controller');
+const app = require('express')();
 
-app.get('/', todoController.home);
+//controller
+const todoDocontroller = require('../controllers/todo.controller');
 
-app.post('/', todoController.addItems);
+app.get('/', todoDocontroller.home);
 
-app.post('/delete', todoController.delete);
+app.post("/", todoDocontroller.homeHandler);
+
+app.post("/delete", todoDocontroller.handleDelete);
+
+//dynamic route
+app.get("/:customList", todoDocontroller.DynamicRoute);
+
+// app.post("/work", (req, res)=>{
+//     let item = req.body.newItem;
+//     workitems.push(item);
+
+//     res.redirect("/work");
+// })
+
+app.get("/about", todoDocontroller.about);
 
 module.exports = app;
