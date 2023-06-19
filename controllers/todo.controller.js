@@ -26,3 +26,13 @@ exports.home = (req, res)=>{
         }
     });
 }
+
+exports.addItems = (req, res) => {
+    let itemName = req.body.newItem;
+    const item = new Item({
+        name: itemName
+    });
+
+    item.save();
+    res.redirect("/");
+}
