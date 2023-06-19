@@ -36,3 +36,15 @@ exports.addItems = (req, res) => {
     item.save();
     res.redirect("/");
 }
+
+exports.delete = (req, res)=>{
+    const itemId = req.body.checkbox;
+    Item.findByIdAndRemove(itemId, (err)=>{
+        if(err){
+            console.log(err);
+        } else{
+            console.log("Successfully deleted");
+        }
+        res.redirect("/");
+    })
+}
